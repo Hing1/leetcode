@@ -14,9 +14,6 @@ public:
             maxnumb = max (i, maxnumb);
             minnumb = min (i, minnumb);
         }
-        if (maxnumb - K <= minnumb + K)
-            return 0;
-        else
-            return (maxnumb - minnumb - 2 * K);
+        return max((maxnumb - minnumb - 2 * K), 0);
     }
 };
