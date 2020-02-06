@@ -1,9 +1,5 @@
 # Leetcode Exercise
 
-
-
-
-
 |                              #                               | Title (linked to leetcode-cn)                                | c                                                            | cpp                                                          | java                                        |
 | :----------------------------------------------------------: | :----------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------- |
 |                   [1](./src/0001-two-sum/)                   | [Two Sum](https://leetcode-cn.com/problems/two-sum/)         |                                                              | [cpp](./src/0001-two-sum/01.cpp)                             |                                             |
@@ -22,6 +18,7 @@
 |              [101](./src/0101-symmetric-tree/)               | [Symmetric Tree](https://leetcode-cn.com/problems/symmetric-tree/) |                                                              | [cpp](./src/0101-symmetric-tree/01.cpp)                      |                                             |
 |       [104](./src/0104-maximum-depth-of-binary-tree/)        | [Maximum Depth of Binary Tree](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/) | [c](./src/0104-maximum-depth-of-binary-tree/01.c)            |                                                              |                                             |
 | [108](./src/0108-convert-sorted-array-to-binary-search-tree/) | [Convert Sorted Array to Binary Search Tree](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/) | [c](./src/0108-convert-sorted-array-to-binary-search-tree/02.c) | [cpp](./src/0108-convert-sorted-array-to-binary-search-tree/01.cpp) |                                             |
+|                 [112](./src/0112-path-sum/)                  | [Path Sum](https://leetcode-cn.com/problems/path-sum/)       |                                                              | [cpp](./src/0112-path-sum/01.cpp)                            |                                             |
 |               [136](./src/0136-single-number/)               | [Single Number](https://leetcode-cn.com/problems/single-number) | [c](./src/0136-single-number/01.c)                           |                                                              |                                             |
 |             [141](./src/0141-linked-list-cycle/)             | [Linked List Cycle](https://leetcode-cn.com/problems/linked-list-cycle/) |                                                              | [cpp](./src/0141-linked-list-cycle/01.cpp)                   |                                             |
 |                 [155](./src/0155-min-stack/)                 | [Min Stack](https://leetcode-cn.com/problems/min-stack)      |                                                              | [cpp](./src/0155-min-stack/01.cpp)                           |                                             |
