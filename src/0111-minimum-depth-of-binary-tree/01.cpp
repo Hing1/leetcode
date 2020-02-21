@@ -1,10 +1,10 @@
 /*************************************************************************
 # File Name: 01.cpp
-# Author: Hing
-# Mail: hing123@126.com
+# Author: Kian Kwok
+# Mail: kiankwok6@gmail.com
 # Created Time: Thu Feb 20 21:59:19 2020
  ************************************************************************/
-af
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {

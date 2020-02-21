@@ -1,7 +1,7 @@
 /*************************************************************************
 # File Name: 01.c
-# Author: Hing
-# mail: hing123@126.com
+# Author: Kian Kwok
+# mail: kiankwok6@gmail.com
 # Created Time: Mon Jan  6 20:27:36 2020
  ************************************************************************/
 
@@ -13,8 +13,6 @@
  *     struct TreeNode *right;
  * };
  */
-
-
 bool isUnivalTree(struct TreeNode* root){
     if (root == NULL)
         return true;

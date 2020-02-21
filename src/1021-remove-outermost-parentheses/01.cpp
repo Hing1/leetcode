@@ -1,7 +1,7 @@
 /*************************************************************************
 # File Name: 01.cpp
-# Author: Hing
-# mail: hing123@126.com
+# Author: Kian Kwok
+# mail: kiankwok6@gmail.com
 # Created Time: Fri Jan 10 11:09:48 2020
  ************************************************************************/
 
@@ -15,7 +15,6 @@ public:
         }
         return ans;
     }
-    
     string removeOuterParentheses(string S) {
         list<char> lc;
         stack<char> stk;
