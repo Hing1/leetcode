@@ -16,11 +16,9 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        struct ListNode *thead = (struct ListNode *)malloc(sizeof(struct ListNode));
-        thead->next = NULL;
-        struct ListNode *temp = NULL;
+        ListNode *thead = new ListNode(0));
         while (head) {
-            temp = head;
+            ListNode *temp = head;
             head = head->next;
             temp->next = thead->next;
             thead->next = temp;
