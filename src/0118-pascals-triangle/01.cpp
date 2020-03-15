@@ -13,13 +13,13 @@ public:
             return ans;
         } else if (numRows == 1) {
             vector<int> vi = {1};
-            vector<vector<int>> ans;
-            ans.push_back(vi);
+            vector<vector<int>> ans = {vi};
             return ans;
         } else {
             vector<vector<int>> ans = generate(numRows - 1);
             vector<int> pre = ans.back();
             vector<int> temp = {1};
+            temp.reserve(numRows);
             for (int i = 0; i < pre.size() - 1; ++i) {
                 temp.push_back(pre[i] + pre[i + 1]);
             }
