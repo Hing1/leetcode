@@ -8,21 +8,18 @@
 class Solution {
 public:
     vector<int> getRow(int rowIndex) {
-        if (rowIndex < 0) {
-            vector<int> ans;
-            return ans;
-        } else if (rowIndex == 0) {
-            vector<int> ans;
+        vector<int> ans;
+        ans.reserve(rowIndex + 1);
+        if (rowIndex >= 0) {
             ans.push_back(1);
-            return ans;
-        } else {
-            vector<int> pre = getRow(rowIndex - 1);
-            vector<int> ans = {1};
-            for (int i = 0; i < pre.size() - 1; ++i) {
-                ans.push_back(pre[i] + pre[i + 1]);
+            if (rowIndex >= 1) {
+                vector<int> pre = getRow(rowIndex - 1);
+                for (int i = 0; i < rowIndex - 1; ++i) {
+                    ans.push_back(pre[i] + pre[i + 1]);
+                }
+                ans.push_back(1);
             }
-            ans.push_back(1);
-            return ans;
         }
+        return ans;
     }
 };
