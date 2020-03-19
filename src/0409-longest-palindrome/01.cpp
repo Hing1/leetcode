@@ -8,22 +8,20 @@
 class Solution {
 public:
     int longestPalindrome(string s) {
-        vector<int> vi(128, 0);
+        vector<int> bucket(128, 0);
         for (int i = 0; i < s.size(); ++i) {
             int temp = s[i] - ' ';
-            ++vi[temp];
+            ++bucket[temp];
         }
         bool hasCenter = false;
         int ans = 0;
         for (int i = 0; i < 128; ++i) {
-            if (vi[i] % 2) {
-                if (!hasCenter) {
-                    hasCenter = true;
-                } else {
-                    --ans;
-                }
+            if (bucket[i] % 2) {
+                if (hasCenter)
+                	--ans;
+                hasCenter = true;
             }
-            ans += vi[i];
+            ans += bucket[i];
         }
         return ans;
     }
