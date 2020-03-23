@@ -16,9 +16,7 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        if (head == NULL)
-            return NULL;
-        if (head->next) {
+        if (head && head->next) {
             struct ListNode *temp = head;
             while (temp && temp->next) {
                 head = head->next;
