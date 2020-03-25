@@ -9,9 +9,11 @@ class Solution {
 public:
     int numRookCaptures(vector<vector<char>>& board) {
         vector<int> rock_location = {-1, -1};
-        for (int i = 0; i < board.size(); ++i) {
+        int leni = board.size();
+        int lenj = board[0].size();
+        for (int i = 0; i < leni; ++i) {
             bool isFound = false;
-            for (int j = 0; j < board[0].size(); ++j) {
+            for (int j = 0; j < lenj; ++j) {
                 if (board[i][j] == 'R') {
                     rock_location[0] = i;
                     rock_location[1] = j;
@@ -23,7 +25,7 @@ public:
                 break;
         }
         int ans = 0;
-        for (int i = rock_location[0]; i < board.size(); ++i) {
+        for (int i = rock_location[0]; i < leni; ++i) {
             if (board[i][rock_location[1]] == 'p') {
                 ++ans;
                 break;
@@ -39,7 +41,7 @@ public:
                 break;
             }
         }
-        for (int j = rock_location[1]; j < board[0].size(); ++j) {
+        for (int j = rock_location[1]; j < lenj; ++j) {
             if (board[rock_location[0]][j] == 'p') {
                 ++ans;
                 break;
