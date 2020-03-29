@@ -1,6 +1,6 @@
 # Leetcode Exercise
 
-|                              #                               | Title (linked to leetcode-cn)                                | c                                                            | cpp                                                          | java                                        |
+|                              #                               | Title (Linked to leetcode-cn)                                | c                                                            | cpp                                                          | java                                        |
 | :----------------------------------------------------------: | :----------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------- |
 |                   [1](./src/0001-two-sum/)                   | [Two Sum](https://leetcode-cn.com/problems/two-sum/)         | [c](./src/0001-two-sum/2.c)                                  | [cpp](./src/0001-two-sum/01.cpp)                             |                                             |
 |               [7](./src/0007-reverse-integer/)               | [Reverse Integer](https://leetcode-cn.com/problems/reverse-integer/) | [c](./src/0007-reverse-integer/02.c)                         | [cpp](./src/0007-reverse-integer/01.cpp)                     |                                             |
