@@ -17,18 +17,19 @@
 class Solution {
 public:
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        if (nums.size() == 0)
+		int len = nums.size();
+        if (len == 0)
             return NULL;
-        int mid = nums.size() / 2;
+        int mid = len / 2;
         TreeNode *root = new TreeNode(nums[mid]);
-        vector<int> temp;
+        vector<int> temp(mid, 0);
         for(int i = 0; i < mid; ++i) {
-            temp.push_back(nums[i]);
+            temp[i] = nums[i];
         }
         root->left = sortedArrayToBST(temp);
-        temp.resize(0);
-        for(int i = mid + 1; i < nums.size(); ++i) {
-            temp.push_back(nums[i]);
+        temp.resize(len - mid - 1);
+        for(int i = 0; i < len - mid - 1; ++i) {
+            temp[i] = nums[mid + i + 1];
         }
         root->right = sortedArrayToBST(temp);
         return root;
