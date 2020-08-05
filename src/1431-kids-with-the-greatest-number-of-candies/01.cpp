@@ -8,20 +8,16 @@
 class Solution {
 public:
     vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
-        vector<bool> ans;
         int len = candies.size();
-        ans.reserve(len);
         int maxCandy = candies[0];
         for (int i = 1; i < len; ++i) {
             if (candies[i] > maxCandy)
                 maxCandy = candies[i];
         }
-        maxCandy = maxCandy - extraCandies;
+        vector<bool> ans(len, true);
         for (int i = 0; i < len; ++i) {
-            if (candies[i] >= maxCandy)
-                ans.push_back(true);
-            else
-                ans.push_back(false);
+            if (candies[i] + extraCandies < maxCandy)
+                ans[i] = false;
         }
         return ans;
     }
