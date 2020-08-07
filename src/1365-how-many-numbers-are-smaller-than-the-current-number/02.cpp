@@ -1,23 +1,27 @@
 /*************************************************************************
-# File Name: 01.cpp
+# File Name: 02.cpp
 # Author: Kian Kwok
 # Mail: kiankwok6@gmail.com
-# Created Time: Wed May 13 23:31:21 2020
+# Created Time: Wed Aug  5 23:31:11 2020
  ************************************************************************/
 
 class Solution {
 public:
-    vector<int> createTargetArray(vector<int>& nums, vector<int>& index) {
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        vector<int> bucket(501, 0);
         int len = nums.size();
         for (int i = 0; i < len; ++i) {
-            for (int j = 0; j < i; ++j) {
-                if (index[j] >= index[i])
-                    ++index[j];
-            }
+            ++bucket[nums[i]];
+        }
+        for (int i = 0; i < 500; ++i) {
+            bucket[i + 1] += bucket[i];
         }
         vector<int> ans(len, 0);
         for (int i = 0; i < len; ++i) {
-            ans[index[i]] = nums[i];
+            if (nums[i])
+                ans[i] = bucket[nums[i] - 1];
+            else
+                ans[i] = 0;
         }
         return ans;
     }

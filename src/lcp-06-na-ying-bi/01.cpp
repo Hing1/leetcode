@@ -2,20 +2,16 @@
 # File Name: 01.cpp
 # Author: Kian Kwok
 # Mail: kiankwok6@gmail.com
-# Created Time: Wed May 13 23:15:30 2020
+# Created Time: Wed Aug  5 22:32:18 2020
  ************************************************************************/
 
 class Solution {
 public:
-    int numberOfSteps (int num) {
-        int count = 0;
-        while (num) {
-            ++count;
-            if (num % 2 == 0)
-                num /= 2;
-            else
-                --num;
+    int minCount(vector<int>& coins) {
+        int ans = 0;
+        for (int i = 0; i < coins.size(); ++i) {
+            ans += coins[i] / 2 + coins[i] % 2;
         }
-        return count;
+        return ans;
     }
 };
