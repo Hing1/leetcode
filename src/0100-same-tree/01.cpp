@@ -16,6 +16,13 @@
  */
 class Solution {
 public:
+#if 1
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if (p && q && p->val == q->val)
+            return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+        return (!p && !q);
+    }
+#else
     bool isSameTree(TreeNode* p, TreeNode* q) {
         if (p != NULL && q != NULL) {
             if (p->val == q->val)
@@ -28,5 +35,6 @@ public:
             return false;
         }
     }
+#endif
 };
 

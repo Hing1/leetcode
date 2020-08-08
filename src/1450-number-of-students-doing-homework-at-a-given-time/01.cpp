@@ -2,15 +2,17 @@
 # File Name: 01.cpp
 # Author: Kian Kwok
 # Mail: kiankwok6@gmail.com
-# Created Time: Fri May 15 22:06:23 2020
+# Created Time: Fri Aug  7 15:04:01 2020
  ************************************************************************/
 
 class Solution {
 public:
-    int minTimeToVisitAllPoints(vector<vector<int>>& points) {
+    int busyStudent(vector<int>& startTime, vector<int>& endTime, int queryTime) {
+        int len = startTime.size();
         int ans = 0;
-        for (int i = 0; i < points.size() - 1; ++i) {
-            ans += max(abs(points[i][0] - points[i + 1][0]), abs(points[i][1] - points[i + 1][1]));
+        for (int i = 0; i < len; ++i) {
+            if (startTime[i] <= queryTime && queryTime <= endTime[i])
+                ++ans;
         }
         return ans;
     }

@@ -2,15 +2,15 @@
 # File Name: 01.cpp
 # Author: Kian Kwok
 # Mail: kiankwok6@gmail.com
-# Created Time: Fri May 15 22:06:23 2020
+# Created Time: Fri Aug  7 15:21:20 2020
  ************************************************************************/
 
 class Solution {
 public:
-    int minTimeToVisitAllPoints(vector<vector<int>>& points) {
-        int ans = 0;
-        for (int i = 0; i < points.size() - 1; ++i) {
-            ans += max(abs(points[i][0] - points[i + 1][0]), abs(points[i][1] - points[i + 1][1]));
+    string restoreString(string s, vector<int>& indices) {
+        string ans(s);
+        for (int i = 0; i < indices.size(); ++i) {
+            ans[indices[i]] = s[i];
         }
         return ans;
     }
