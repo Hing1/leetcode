@@ -10,13 +10,12 @@ public:
     int oddCells(int n, int m, vector<vector<int>>& indices) {
         vector<int> temp(m, 0);
         vector<vector<int>> matrix(n, temp);
-        for (int i = 0; i < indices.size(); ++i) {
-            vector<int> cur = indices[i];
-            for (int j = 0; j < n; ++j) {
-                ++matrix[j][cur[1]];
+        for (int k = 0; k < indices.size(); ++k) {
+            for (int i = 0; i < n; ++i) {
+                ++matrix[i][indices[k][1]];
             }
             for (int j = 0; j < m; ++j) {
-                ++matrix[cur[0]][j];
+                ++matrix[indices[k][0]][j];
             }
         }
         int count = 0;

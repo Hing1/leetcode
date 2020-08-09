@@ -1,21 +1,19 @@
 /*************************************************************************
 # File Name: 01.cpp
 # Author: Kian Kwok
-# mail: kiankwok6@gmail.com
-# Created Time: Mon Jan 27 11:58:56 2020
+# Mail: kiankwok6@gmail.com
+# Created Time: Sun Aug  9 16:17:17 2020
  ************************************************************************/
 
 class Solution {
 public:
-    int balancedStringSplit(string s) {
+    int hammingDistance(int x, int y) {
         int ans = 0;
-        for (int i = 0, flag = 0; i < s.size(); ++i) {
-            if (s[i] == 'R')
-                ++flag;
-            else
-                --flag;
-            if (flag == 0)
+        while (x || y) {
+            if (x % 2 != y % 2)
                 ++ans;
+            x /= 2;
+            y /= 2;
         }
         return ans;
     }

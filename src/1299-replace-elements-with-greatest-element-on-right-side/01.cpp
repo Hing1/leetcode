@@ -7,6 +7,7 @@
 
 class Solution {
 public:
+#if 0
     vector<int> replaceElements(vector<int>& arr) {
         int len = arr.size();
         int maxValue = arr[len - 1];
@@ -18,4 +19,18 @@ public:
         }
         return ans;
     }
+#else
+    vector<int> replaceElements(vector<int>& arr) {
+        int len = arr.size();
+        int rightMax = arr[len - 1];
+        arr[len - 1] = -1;
+        for (int i = arr.size() - 2; i >= 0; --i) {
+            int temp = arr[i];
+            arr[i] = rightMax;
+            if (temp > rightMax)
+                rightMax = temp;
+        }
+        return arr;
+    }
+#endif
 };
