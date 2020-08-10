@@ -7,6 +7,22 @@
 
 class Solution {
 public:
+#if 0
+    vector<vector<int>> flipAndInvertImage(vector<vector<int>>& A) {
+        int col = A[0].size();
+        vector<int> notvi = {1, 0};
+        for (int i = 0; i < A.size(); ++i) {
+            for (int j = 0; j < col / 2; ++j) {
+                int temp = A[i][j];
+                A[i][j] = notvi[A[i][col - j - 1]];
+                A[i][col - j - 1] = notvi[temp];
+            }
+            if (col % 2)
+                A[i][col / 2] = notvi[A[i][col / 2]];
+        }
+        return A;
+    }
+#else
     vector<vector<int>> flipAndInvertImage(vector<vector<int>>& A) {
         int len = A[0].size();
         for (int i = 0; i < A.size(); ++i) {
@@ -23,4 +39,5 @@ public:
         }
         return A;
     }
+#endif
 };
