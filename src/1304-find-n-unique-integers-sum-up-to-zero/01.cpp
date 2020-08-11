@@ -8,13 +8,11 @@
 class Solution {
 public:
     vector<int> sumZero(int n) {
-        vector<int> vi;
-        for (int i = 1; i <= n / 2; ++i) {
-            vi.push_back(i);
-            vi.push_back(-i);
+        vector<int> ans(n, 0);
+        for (int i = 0; i < n / 2; ++i) {
+            ans[i] = i + 1;
+            ans[i + n / 2] = -i - 1;
         }
-        if (n % 2)
-            vi.push_back(0);
-        return vi;
+        return ans;
     }
 };

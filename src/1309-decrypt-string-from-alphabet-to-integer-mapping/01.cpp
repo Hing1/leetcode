@@ -8,20 +8,22 @@
 class Solution {
 public:
     string freqAlphabets(string s) {
-        string re_ans;
-        int dif_char = 'a' - '1';
-        int dif_int = '1' - 1;
-        for (int i = s.size() - 1; i >= 0; --i) {
-            if ('0' <= s[i] && s[i] <= '9') {
-                re_ans += s[i] + dif_char;
+        string rev;
+        rev.reserve(128);
+        int len = 0;
+        for (int i = s.size() - 1; i >= 0; --i, ++len) {
+            int dif = 0;
+            if (s[i] == '#') {
+                dif = s[--i] - '0';
+                dif += (s[--i] - '0') * 10;
             } else {
-                int temp = (s[--i] - dif_int) + (s[--i] - dif_int) * 10;
-                re_ans += temp + dif_char + dif_int;
+                dif = s[i] - '0';
             }
+            rev += 'a' + dif - 1;
         }
-        string ans;
-        for (int i = re_ans.size() - 1; i >= 0; --i) {
-            ans += re_ans[i];
+        string ans(len, ' ');
+        for (int i = 0; i < len; ++i) {
+            ans[i] = rev[len - i - 1];
         }
         return ans;
     }
