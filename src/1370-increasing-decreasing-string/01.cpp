@@ -32,3 +32,35 @@ public:
         return s;
     }
 };
+
+class Solution {
+public:
+    string sortString(string s) {
+        vector<int> bucket(26, 0);
+        int len = s.size();
+        for (int i = 0; i < len; ++i) {
+            ++bucket[s[i] - 'a'];
+        }
+        string ans;
+        ans.reserve(len);
+        while (len) {
+            for (int i = 0; i < 26; ++i) {
+                if (bucket[i]) {
+                    ans += 'a' + i;
+                    --bucket[i];
+                }
+            }
+            --len;
+            if (len == 0)
+                break;
+            for (int i = 25; i >= 0; --i) {
+                if (bucket[i]) {
+                    ans += 'a' + i;
+                    --bucket[i];
+                }
+            }
+            --len;
+        }
+        return ans;
+    }
+};

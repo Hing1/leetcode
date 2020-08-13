@@ -6,33 +6,23 @@
  ************************************************************************/
 
 class Solution {
-public:
-    bool isSelfDividi(int n) {
-        if (n == 0)
-            return false;
-        int temp = n;
-        vector<int> vi;
-        while (temp) {
-            if (temp % 10 != 0)
-                vi.push_back(temp % 10);
-            else
+    bool isSelfDividing(int n) {
+        int bits = n;
+        while (bits) {
+            if (!(bits % 10) || n % (bits % 10))
                 return false;
-            temp = temp / 10;
-        }
-        for (auto itr = vi.begin(); itr != vi.end(); ++itr) {
-            if (n % (*itr) != 0)
-                return false;
+            bits /= 10;
         }
         return true;
     }
+public:
     vector<int> selfDividingNumbers(int left, int right) {
-        vector<int> vi;
-        if (left > right)
-            return vi;
+        vector<int> ans;
+        ans.reserve(right - left);
         for (int i = left; i <= right; ++i) {
             if (isSelfDividi(i))
-                vi.push_back(i);
+                ans.push_back(i);
         }
-        return vi;
+        return ans;
     }
 };
