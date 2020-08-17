@@ -8,24 +8,21 @@
 class Solution {
 public:
     vector<string> findWords(vector<string>& words) {
-        vector<int> vi(128, -1);
-        vector<string> vs = {"QWERTYUIOPqwertyuiop",
-                             "ASDFGHJKLasdfghjkl", 
-                             "ZXCVBNMzxcvbnm"};
+        vector<int> bucket(64, -1);
+        vector<string> letters = {"qwertyuiopQWERTYUIOP", "asdfghjklASDFGHJKL", "zxcvbnmZXCVBNM"};
         for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < vs[i].size(); ++j) {
-                vi[vs[i][j] - ' '] = i;
+            for (int j = 0; j < letters[i].size(); ++j) {
+                bucket[letters[i][j] - 'A'] = i;
             }
         }
         vector<string> ans;
+        ans.reserve(256);
         for (int i = 0; i < words.size(); ++i) {
-            int len = words[i].size();
             bool flag = true;
-            if (len > 1) {
-                int temp = vi[words[i][0] - ' '];
-                for (int j = 1; j < len; ++j) {
-                    if (vi[words[i][j] - ' '] != temp)
-                        flag = false;
+            for (int j = 1; j < words[i].size(); ++j) {
+                if (bucket[words[i][j - 1] - 'A'] != bucket[words[i][j] - 'A']) {
+                    flag = false;
+                    break;
                 }
             }
             if (flag)

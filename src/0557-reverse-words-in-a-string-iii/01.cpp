@@ -6,29 +6,29 @@
  ************************************************************************/
 
 class Solution {
-public:
-    string revString(string s) {
-        string ans;
-        for (int i = s.size() - 1; i >= 0; --i) {
-            ans += s[i];
+	string reverseWord(string s) {
+        string rev = s;
+        int len = s.size();
+        for (int i = 0; i < len; ++i) {
+            rev[i] = s[len - i - 1];
         }
-        return ans;
+        return rev;
     }
+public:
     string reverseWords(string s) {
         string ans;
+        ans.reserve(1024);
         string word;
         for (int i = 0; i < s.size(); ++i) {
             if (s[i] == ' ') {
-                ans += revString(word);
+                ans += reverseWord(word);
                 ans += ' ';
                 word = "";
             } else {
                 word += s[i];
             }
         }
-        if (word.size() != 0) {
-            ans += revString(word);
-        }
+        ans += reverseWord(word);
         return ans;
     }
 };

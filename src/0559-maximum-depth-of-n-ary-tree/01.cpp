@@ -27,14 +27,13 @@ public:
 class Solution {
 public:
     int maxDepth(Node* root) {
-        int height = 0;
-        if (root != NULL) {
-            vector<Node *> child = root->children;
-            for (auto itr = root->children.begin(); itr != root->children.end(); ++itr)
-                height = max(height, maxDepth(*itr));
-            ++height;
+        if (root == NULL)
+            return 0;
+        int maxdep = 0;
+        for (int i = 0; i < root->children.size(); ++i) {
+            maxdep = max(maxdep, maxDepth(root->children[i]));
         }
-        return height;
+        return maxdep + 1;
     }
 };
 

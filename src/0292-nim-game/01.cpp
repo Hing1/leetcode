@@ -14,7 +14,10 @@ public:
         if (n == 4)
             return false;
         return !(canWinNim(n - 1) && canWinNim(n - 2) && canWinNim(n - 3));
-#endif
+#elif 0
         return n & 3;
+#else
+    	return n % 4;
+#endif
     }
 };

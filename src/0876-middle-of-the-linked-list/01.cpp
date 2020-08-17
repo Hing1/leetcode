@@ -16,13 +16,11 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        if (head && head->next) {
-            struct ListNode *temp = head;
-            while (temp && temp->next) {
-                head = head->next;
-                temp = temp->next->next;
-            }
+        ListNode *thead = head;
+        while (head && head->next) {
+            thead = thead->next;
+            head = head->next->next;
         }
-        return head;
+        return thead;
     }
 };

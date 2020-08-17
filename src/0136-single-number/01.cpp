@@ -2,14 +2,16 @@
 # File Name: 01.cpp
 # Author: Kian Kwok
 # Mail: kiankwok6@gmail.com
-# Created Time: Wed Mar 11 21:38:15 2020
+# Created Time: Tue May 12 13:36:49 2020
  ************************************************************************/
 
 class Solution {
 public:
-    string generateTheString(int n) {
-        string ans (n, 'a');
-        ans[0] = (n % 2) ? 'a' : 'b';
+    int singleNumber(vector<int>& nums) {
+        int ans = nums[0];
+        for (int i = 1; i < nums.size(); ++i) {
+            ans ^= nums[i];
+        }
         return ans;
     }
 };
