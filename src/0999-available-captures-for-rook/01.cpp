@@ -8,53 +8,46 @@
 class Solution {
 public:
     int numRookCaptures(vector<vector<char>>& board) {
-        vector<int> rock_location = {-1, -1};
-        int leni = board.size();
-        int lenj = board[0].size();
-        for (int i = 0; i < leni; ++i) {
-            bool isFound = false;
-            for (int j = 0; j < lenj; ++j) {
+        int row = board.size();
+        int col = board[0].size();
+        int ans = 0;
+        for (int i = 0; i < row; ++i) {
+            for (int j = 0; j < col; ++j) {
                 if (board[i][j] == 'R') {
-                    rock_location[0] = i;
-                    rock_location[1] = j;
-                    isFound = true;
+                    if (i + 1 < row) {
+                        for (int i1 = i + 1; i1 < row; ++i1) {
+                            if (board[i1][j] == 'p')
+                                ++ans;
+                            if (board[i1][j] != '.')
+                                break;
+                        }
+                    }
+                    if (j + 1 < col) {
+                        for (int j1 = j + 1; j1 < col; ++j1) {
+                            if (board[i][j1] == 'p')
+                                ++ans;
+                            if (board[i][j1] != '.')
+                                break;
+                        }
+                    }
+                    if (i - 1 >= 0) {
+                        for (int i1 = i - 1; i1 >= 0; --i1) {
+                            if (board[i1][j] == 'p')
+                                ++ans;
+                            if (board[i1][j] != '.')
+                                break;
+                        }
+                    }
+                    if (j - 1 >= 0) {
+                        for (int j1 = j - 1; j1 >= 0; --j1) {
+                            if (board[i][j1] == 'p')
+                                ++ans;
+                            if (board[i][j1] != '.')
+                                break;
+                        }
+                    }
                     break;
                 }
-            }
-            if (isFound)
-                break;
-        }
-        int ans = 0;
-        for (int i = rock_location[0]; i < leni; ++i) {
-            if (board[i][rock_location[1]] == 'p') {
-                ++ans;
-                break;
-            } else if (board[i][rock_location[1]] == 'B'){
-                break;
-            }
-        }
-        for (int i = rock_location[0]; i >= 0; --i) {
-            if (board[i][rock_location[1]] == 'p') {
-                ++ans;
-                break;
-            } else if (board[i][rock_location[1]] == 'B'){
-                break;
-            }
-        }
-        for (int j = rock_location[1]; j < lenj; ++j) {
-            if (board[rock_location[0]][j] == 'p') {
-                ++ans;
-                break;
-            } else if (board[rock_location[0]][j] == 'B'){
-                break;
-            }
-        }
-        for (int j = rock_location[1]; j >= 0; --j) {
-            if (board[rock_location[0]][j] == 'p') {
-                ++ans;
-                break;
-            } else if (board[rock_location[0]][j] == 'B'){
-                break;
             }
         }
         return ans;

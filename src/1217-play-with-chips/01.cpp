@@ -8,9 +8,8 @@
 class Solution {
 public:
     int minCostToMoveChips(vector<int>& chips) {
-        int odd = 0;
-        int even = 0;
-        for (auto &i:chips) {
+        int odd = 0, even = 0;
+        for (auto &i : chips) {
             if (i % 2)
                 ++odd;
             else

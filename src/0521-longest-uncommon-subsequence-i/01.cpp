@@ -7,7 +7,23 @@
 
 class Solution {
 public:
+#if 0
+    int findLUSlength(string a, string b) {
+        int lenA = a.size();
+        int lenB = b.size();
+        if (lenA == lenB) {
+            for (int i = 0; i < lenA; ++i) {
+                if (a[i] != b[i])
+                    return lenA - i;
+            }
+        } else {
+            return max(lenA, lenB);
+        }
+        return -1;
+    }
+#else
     int findLUSlength(string a, string b) {
         return (a == b) ? -1 : max (a.size(), b.size());
     }
+#endif
 };
