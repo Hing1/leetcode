@@ -8,14 +8,13 @@
 class Solution {
 public:
     vector<vector<int>> transpose(vector<vector<int>>& A) {
-        vector<vector<int>> ans;
-        vector<int> temp;
-        for (int i = 0; i < A[0].size(); ++i) {
-            for (int j = 0; j < A.size(); ++j) {
-                temp.push_back(A[j][i]);
+        int row = A.size();
+        int col = A[0].size();
+        vector<vector<int>> ans(col, vector<int>(row, 0));
+        for (int i = 0; i < row; ++i) {
+            for (int j = 0; j < col; ++j) {
+                ans[j][i] = A[i][j];
             }
-            ans.push_back(temp);
-            temp.clear();
         }
         return ans;
     }

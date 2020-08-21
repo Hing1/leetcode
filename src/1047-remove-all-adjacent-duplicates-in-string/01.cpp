@@ -10,10 +10,11 @@ public:
     string removeDuplicates(string S) {
         stack<char> stk;
         for (int i = S.size() - 1; i >= 0; --i) {
-            if (stk.empty() || stk.top() != S[i])
+            if (stk.empty() || stk.top() != S[i]) {
                 stk.push(S[i]);
-            else
+            } else {
                 stk.pop();
+            }
         }
         string ans = "";
         while (!stk.empty()) {
