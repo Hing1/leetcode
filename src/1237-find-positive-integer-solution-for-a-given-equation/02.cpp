@@ -21,11 +21,11 @@ class Solution {
 public:
     vector<vector<int>> findSolution(CustomFunction& customfunction, int z) {
         vector<vector<int>> ans;
-        int left = 1, right = 1000;
+        int right = 1000;
         for(int i = 1; i <= 1000; ++i) {
-            left = 1;
+            int left = 1;
             while(left <= right) {
-                int mid = (left + right) / 2;
+                int mid = left + (right - left) / 2;
                 int temp = customfunction.f(i, mid);
                 if(temp < z) {
                     left = mid + 1;
