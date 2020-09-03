@@ -7,6 +7,7 @@
 
 class Solution {
 public:
+#if 0
     vector<int> sortArrayByParityII(vector<int>& A) {
         sort(A.begin(), A.end());
         vector<int> even;
@@ -25,4 +26,26 @@ public:
         }
         return ans;
     }
+#else
+    vector<int> sortArrayByParityII(vector<int>& A) {
+        int len = A.size();
+        int i = 0, j = len - 1;
+        while (i < len && j >= 0) {
+            while (i < len && A[i] % 2 == 0) {
+                i += 2;
+                if (i >= len)
+                    return A;
+            }
+            while (j >= 0 && A[j] % 2 == 1) {
+                j -= 2;
+                if (j < 0)
+                    return A;
+            }
+            int temp = A[i];
+            A[i] = A[j];
+            A[j] = temp;
+        }
+        return A;
+    }
+#endif
 };
