@@ -7,25 +7,21 @@
 
 class Solution {
 public:
-    int my_distance(string str, char key, int idx) {
-        int i = 0;
-        while (1) {
-            if (idx + i < str.size()) {
-                if (str[idx + i] == key)
-                    return i;
-            }
-            if (idx - i >= 0) {
-                if (str[idx - i] == key)
-                    return i;
-            }
-            ++i;
-        }
-    }
     vector<int> shortestToChar(string S, char C) {
-        vector<int> vi;
-        for (int i = 0; i < S.size(); ++i) {
-            vi.push_back(my_distance(S, C, i));
+        int len = S.size();
+        vector<int> ans(len, 0);
+        int pre = INT_MIN + len + 1;
+        for (int i = 0; i < len; ++i) {
+            if (S[i] == C)
+                pre = i;
+            ans[i] = i - pre;
         }
-        return vi;
+        pre = INT_MAX - len - 1;
+        for (int i = len - 1; i >= 0; --i) {
+            if (S[i] == C)
+                pre = i;
+            ans[i] = min(ans[i], pre - i);
+        }
+        return ans;
     }
 };

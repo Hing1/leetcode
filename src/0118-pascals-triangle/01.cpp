@@ -9,22 +9,18 @@ class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
         if (numRows <= 0) {
-            vector<vector<int>> ans;
-            return ans;
+            return {};
         } else if (numRows == 1) {
-            vector<int> vi = {1};
-            vector<vector<int>> ans = {vi};
-            return ans;
+            return {{1}};
         } else {
             vector<vector<int>> ans = generate(numRows - 1);
             vector<int> pre = ans.back();
-            vector<int> temp = {1};
-            temp.reserve(numRows);
+            vector<int> cur = {1};
             for (int i = 0; i < pre.size() - 1; ++i) {
-                temp.push_back(pre[i] + pre[i + 1]);
+                cur.push_back(pre[i] + pre[i + 1]);
             }
-            temp.push_back(1);
-            ans.push_back(temp);
+            cur.push_back(1);
+            ans.push_back(cur);
             return ans;
         }
     }
