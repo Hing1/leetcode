@@ -12,8 +12,6 @@ public:
         int lenN = needle.size();
         if (lenN == 0)
             return 0;
-        if (lenH < lenN)
-            return -1;
         for (int i = 0; i < lenH - lenN + 1; ++i) {
             int j = 0;
             for (; j < lenN; ++j) {
